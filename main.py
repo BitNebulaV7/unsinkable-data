@@ -42,6 +42,14 @@ print("Mean Age:", round(mean_age, 2))
 print("Median Age:", round(median_age, 2))
 print("Std Dev Age:", round(std_age, 2))
 
+children = df_convert[df_convert['Age'] < 18]
+
+children_survival_rate = children['Survived'].mean() * 100
+print("\nChildren analysis:")
+print("Children count:", len(children))
+print("Children survival rate (%):", round(children_survival_rate, 2))
+
+
 plot_overall_survival(survival_rate(df_convert))
 plot_survival_by_sex(survival_by_sex(df_convert))
 plot_survival_by_class(survival_by_class(df_convert))
