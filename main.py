@@ -1,4 +1,4 @@
-
+import numpy as np
 from src.load_data import load_data, summarise_df
 from src.clean_data import clean_missing_values
 from utils.schema import schema
@@ -32,8 +32,15 @@ print(survival_by_class(df_convert))
 print("\nSurvival by Sex and Class:")
 print(survival_by_sex_class(df_convert))
 
+# --- Age statistics ---
+ages = df_convert['Age'].values
 
-
+mean_age = np.mean(ages)
+median_age = np.median(ages)
+std_age = np.std(ages)
+print("Mean Age:", round(mean_age, 2))
+print("Median Age:", round(median_age, 2))
+print("Std Dev Age:", round(std_age, 2))
 
 plot_overall_survival(survival_rate(df_convert))
 plot_survival_by_sex(survival_by_sex(df_convert))
